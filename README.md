@@ -1,44 +1,48 @@
 # 📄 PDFIQ: Ask your PDF
 
-PDFIQ is a lightweight, interactive PDF reader and QA system built using **Streamlit** and powered by **OpenAI's GPT-4.1-nano** (or any other OpenAI-compatible model). It reads your PDF files and lets you query their content intelligently using custom prompts and a system message to guide model behavior.
+PDFIQ is a powerful, interactive PDF reader and question-answering system that uses **OpenAI's GPT-4.1-nano** (or any OpenAI-compatible model) and **Quadrant VectorDB** to understand your documents. It parses PDFs into chunks, stores them in a vector database, and retrieves relevant content based on your query using semantic search.
 
 ---
 
 ## 🚀 Features
 
-- ✅ Upload any PDF and extract structured text content
-- 🤖 Use **OpenAI GPT-4.1-nano** (or your preferred model) to answer questions about the PDF
-- 🧠 Supports a customizable **system prompt** to guide model tone and reasoning
-- 🔁 Easily change the PDF and ask new questions dynamically
-- 💬 Streaming answers in real-time with **Streamlit** UI
-- 🔧 Modular architecture: swap models, prompts, or PDF logic easily
+- 📂 Upload any PDF and extract structured text automatically
+- 🤖 Query document content with **GPT-4.1-nano** or other models
+- 🧠 Define a **custom system prompt** to control model behavior
+- 🔎 Uses **Quadrant VectorDB** for chunked document storage and fast retrieval
+- 🔁 Easily swap PDFs and continue querying
+- 💬 Real-time streaming answers with a clean **Streamlit** UI
+- 🐳 **Dockerized** vector store for local development and testing
 
 ---
 
 ## 🛠️ Tech Stack
 
-- [Streamlit](https://streamlit.io/) – Frontend and interaction
-- [OpenAI Python SDK](https://github.com/openai/openai-python) – Model calls
+- [Streamlit](https://streamlit.io/) – Frontend UI
+- [OpenAI Python SDK](https://github.com/openai/openai-python) – Model integration
+- [Quadrant VectorDB](https://github.com/quadrant-ai/vector-db) – Semantic search & storage
+- [Docker](https://www.docker.com/) – Isolated vector DB environment
 - [PyMuPDF / fitz](https://pymupdf.readthedocs.io/en/latest/) – PDF parsing
 - Python (3.8+)
 
 ---
 
-## 🧪 Example Use Case
+## 🧪 Example Workflow
 
-1. Upload your research paper, contract, or report in PDF form.
-2. Enter a custom system prompt (e.g., "Act like a legal assistant").
-3. Ask questions like:
-   - "What is the conclusion of this paper?"
-   - "List all dates and deadlines."
-   - "Summarize the methodology in 3 bullet points."
-4. Get instant answers from GPT-4.1-nano.
+1. **Upload** a PDF document.
+2. PDF is **parsed and chunked**, then embedded and stored in **Quadrant VectorDB**.
+3. When you **ask a question**, the system:
+   - Embeds your query
+   - Finds **relevant chunks** using vector similarity
+   - Passes the results + your prompt to the **GPT model**
+4. GPT returns a **context-aware** response.
 
 ---
 
 ## 📦 Installation
 
+Clone the repository:
+
 ```bash
 git clone https://github.com/yourusername/PDFIQ.git
 cd PDFIQ
-pip install -r requirements.txt
