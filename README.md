@@ -1,4 +1,4 @@
-# 📄 PDFIQ: Ask your PDF
+# 📚 PDFIQ : Ask Your PDF 🤖
 
 PDFIQ is a powerful, interactive PDF reader and question-answering system that uses **OpenAI's GPT models** (or any OpenAI-compatible model) and **Qdrant VectorDB** to understand your documents. It parses PDFs into chunks, stores them in a vector database, and retrieves relevant content based on your query using semantic search.
 
